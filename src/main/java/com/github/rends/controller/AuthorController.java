@@ -35,13 +35,13 @@ public class AuthorController {
 
     //自定义查找
     @GetMapping("/findByNameDefine")
-    public Author findByNameDefine(String name){
+    public Author findByNameDefine(@RequestParam String name){
         return authorService.findByName(name);
     }
 
     //QueryWrapper 可封装多种查询
     @GetMapping("/findByName")
-    public Author findByName(String name){
+    public Author findByName(@RequestParam String name){
         return authorService.selectOne(new QueryWrapper<Author>().eq("name",name));
     }
 
